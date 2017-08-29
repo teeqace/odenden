@@ -1,0 +1,177 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "fall0",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.1,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "props": {
+      "scaleX": [
+        {
+          "frame": 0,
+          "value": 0.7
+        },
+        {
+          "frame": 0.1,
+          "value": 1
+        }
+      ],
+      "scaleY": [
+        {
+          "frame": 0,
+          "value": 0.7
+        },
+        {
+          "frame": 0.1,
+          "value": 1
+        }
+      ],
+      "y": [
+        {
+          "frame": 0,
+          "value": 96
+        },
+        {
+          "frame": 0.1,
+          "value": 0
+        }
+      ]
+    },
+    "paths": {
+      "kon": {
+        "props": {
+          "color": [
+            {
+              "frame": 0,
+              "value": {
+                "__type__": "cc.Color",
+                "r": 127,
+                "g": 127,
+                "b": 127,
+                "a": 255
+              }
+            },
+            {
+              "frame": 0.1,
+              "value": {
+                "__type__": "cc.Color",
+                "r": 255,
+                "g": 255,
+                "b": 255,
+                "a": 255
+              }
+            }
+          ]
+        }
+      },
+      "dai": {
+        "props": {
+          "color": [
+            {
+              "frame": 0,
+              "value": {
+                "__type__": "cc.Color",
+                "r": 127,
+                "g": 127,
+                "b": 127,
+                "a": 255
+              }
+            },
+            {
+              "frame": 0.1,
+              "value": {
+                "__type__": "cc.Color",
+                "r": 255,
+                "g": 255,
+                "b": 255,
+                "a": 255
+              }
+            }
+          ]
+        }
+      },
+      "chiku": {
+        "props": {
+          "color": [
+            {
+              "frame": 0,
+              "value": {
+                "__type__": "cc.Color",
+                "r": 127,
+                "g": 127,
+                "b": 127,
+                "a": 255
+              }
+            },
+            {
+              "frame": 0.1,
+              "value": {
+                "__type__": "cc.Color",
+                "r": 255,
+                "g": 255,
+                "b": 255,
+                "a": 255
+              }
+            }
+          ]
+        }
+      },
+      "naru": {
+        "props": {
+          "color": [
+            {
+              "frame": 0,
+              "value": {
+                "__type__": "cc.Color",
+                "r": 127,
+                "g": 127,
+                "b": 127,
+                "a": 255
+              }
+            },
+            {
+              "frame": 0.1,
+              "value": {
+                "__type__": "cc.Color",
+                "r": 255,
+                "g": 255,
+                "b": 255,
+                "a": 255
+              }
+            }
+          ]
+        }
+      },
+      "han": {
+        "props": {
+          "color": [
+            {
+              "frame": 0,
+              "value": {
+                "__type__": "cc.Color",
+                "r": 127,
+                "g": 127,
+                "b": 127,
+                "a": 255
+              }
+            },
+            {
+              "frame": 0.1,
+              "value": {
+                "__type__": "cc.Color",
+                "r": 255,
+                "g": 255,
+                "b": 255,
+                "a": 255
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}
