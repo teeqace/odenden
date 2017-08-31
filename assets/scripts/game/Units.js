@@ -16,6 +16,7 @@ cc.Class({
   onLoad: function () {
     messagePipeline.on('NEXT_STAGE', this._nextStage, this)
     messagePipeline.on('TANE_SWAP', this._taneSwap, this)
+    messagePipeline.on('GAME_RESET', this._gameReset, this)
     this.taneCount = 0
     this.targetOdnCount = 0
     this.restOdnCount = 0
@@ -71,6 +72,10 @@ cc.Class({
         unit.swap(swapIndex)
       }
     }, this)
+  },
+
+  _gameReset(event, detail) {
+    this.node.removeAllChildren()
   },
 
   newUnit(index) {

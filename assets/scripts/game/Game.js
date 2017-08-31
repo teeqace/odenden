@@ -19,22 +19,27 @@ cc.Class({
     labelOdn: cc.Label,
     labelStage: cc.Label,
     labelTime: cc.Label,
-    timer: 15
+    timer: 20
   },
 
   // use this for initialization
   onLoad: function () {
+    messagePipeline.on('STAGE_CLEAR', this._nextStage, this)
+    messagePipeline.on('UNIT_SHUKKA', this._shukka, this)
+    messagePipeline.on('GAME_START', this._gameStart, this)
+    messagePipeline.on('GAME_RESET', this._gameReset, this)
+  },
+
+  init() {
     this.stageCount = 0
     this.taneCount = TANE_BASE
 
     this.openTimer = 0
+    this.gameTimer = this.timer
+    this.labelTime.string = `TIME:${Math.floor(this.gameTimer * 10) / 10}`
 
     this.targetOdnCount = 0
     this.gameStart = false
-
-    messagePipeline.on('STAGE_CLEAR', this._nextStage, this)
-    messagePipeline.on('UNIT_SHUKKA', this._shukka, this)
-    messagePipeline.on('GAME_START', this._gameStart, this)
   },
 
   _nextStage() {
@@ -43,7 +48,7 @@ cc.Class({
       if (addTime > 0) {
         this.labelnextStageTime.string = `+${addTime}sec`
         this.nextStageTimeAdd.play()
-        this.timer = Math.min(30, this.timer + addTime)
+        this.gameTimer = Math.min(30, this.gameTimer + addTime)
       }
     }
     this.stageCount += 1
@@ -59,7 +64,7 @@ cc.Class({
 
   _shukka() {
     this.targetOdnCount -= 1
-    this.timer = Math.min(30, this.timer + 1)
+    this.gameTimer = Math.min(30, this.gameTimer + 1)
     this.shukkaTimeAdd.play()
     // this.labelOdn.string = `ODN:${this.targetOdnCount}`
     this.labelOdn.string = `ODEN:${this.stageCount - 1}`
@@ -67,6 +72,10 @@ cc.Class({
 
   _gameStart() {
     this.gameStart = true
+  },
+
+  _gameReset() {
+    this.init()
   },
 
   // called every frame, uncomment this function to activate update callback
@@ -79,11 +88,11 @@ cc.Class({
       }
     }
     if (this.gameStart) {
-      this.timer = Math.max(0, this.timer - dt)
-      this.labelTime.string = `TIME:${Math.floor(this.timer * 10) / 10}`
+      this.gameTimer = Math.max(0, this.gameTimer - dt)
+      this.labelTime.string = `TIME:${Math.floor(this.gameTimer * 10) / 10}`
 
-      this.countDown.countDown(this.timer)
-      if (this.timer <= 0) {
+      this.countDown.countDown(this.gameTimer)
+      if (this.gameTimer <= 0) {
         this.gameStart = false
         messagePipeline.sendMessage('GAME_OVER', this)
       }

@@ -17,6 +17,7 @@ cc.Class({
     this._isOpened = false
     messagePipeline.on('GAME_OPEN', this._gameOpen, this)
     messagePipeline.on('GAME_OVER', this._gameOver, this)
+    messagePipeline.on('GAME_RESET', this._gameReset, this)
   },
 
   _gameOpen() {
@@ -31,6 +32,13 @@ cc.Class({
     this._labelType = 'gameOver'
   },
 
+  _gameReset(event, detail) {
+    this.labelText.string = ''
+    this._labelType = 'gameReset'
+    if (this.node.getScale() === 1) {
+      this._animation.play('LabelClose')
+    }
+  },
 
   _labelOpened() {
     this._isOpened = true
